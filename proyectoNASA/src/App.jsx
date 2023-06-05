@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import './App.css'
 import axios from 'axios'; //para manejar la asincronía de las peticiones con esta librería
-
 import Figure from './components/Figure/Figure'
 
+
+
+
 const App = () => {
-  
+
 //importacion del logo
 const logo = "https://res.cloudinary.com/dw9b8eqmc/image/upload/v1685922452/nasa-api-nominee_ifqimw.png"
  
@@ -13,13 +15,13 @@ const logo = "https://res.cloudinary.com/dw9b8eqmc/image/upload/v1685922452/nasa
 const today = new Date(Date.now()).toISOString().slice(0, 10);
 
 //Creamos una variable de estado llamada apod inicializada como objeto vacío
-const [apod, setApod] = useState({});
+const [apod, setApod] = useState({today});
 
 //Creamos una variable de estado llamada date con la fecha del día actual formateada
 const [date, setDate] = useState(today);
 
 //se almacenan en constantes la URL de la NASA y la API KEY
-const NASA_URL = "https://api.nasa.gov/";
+const NASA_URL = "https://api.nasa.gov/planetary/apod";
 const NASA_API_KEY = "mIqudWrUgurIZYKZH3RvHDmxvkjbdd9S7N55FhY3";
 
 //El efecto del renderizado será hacer una petición de tipo get a la URL de la NASA
